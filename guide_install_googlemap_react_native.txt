@@ -1,0 +1,47 @@
+**************************************************************************
+				install map in react native app
+				
+				$ npm install react-native-maps --save
+				
+				1)In your android/app/build.gradle add:
+				...
+				dependencies {
+				  ...
+				  compile project(':react-native-maps')
+				}
+**************************************************************************				
+				2) In your android/settings.gradle add:				
+				...
+				include ':react-native-maps'
+				project(':react-native-maps').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-maps/lib/android')
+**************************************************************************				
+				3) Specify your Google Maps API Key:
+
+				Add your API key to your manifest file (android/app/src/main/AndroidManifest.xml):
+
+				<application>
+				   <!-- You will only need to add this meta-data tag, but make sure it's a child of application -->
+				   <meta-data
+					 android:name="com.google.android.geo.API_KEY"
+					 android:value="Your Google maps API Key Here"/>
+				</application>
+				
+				Note: refer to https://developers.google.com/maps/documentation/android-sdk/signup to get API key
+**************************************************************************				
+				4) Run app
+				$ react-native run-android
+**************************************************************************				
+				5) import and use
+				import MapView from 'react-native-maps';
+				
+				...
+				 <MapView
+					initialRegion={{
+					  latitude: 37.78825,
+					  longitude: -122.4324,
+					  latitudeDelta: 0.0922,
+					  longitudeDelta: 0.0421,
+					}}
+				  />
+				...
+**************************************************************************

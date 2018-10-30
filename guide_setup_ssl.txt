@@ -1,0 +1,13 @@
+
+Các bước cài đặt SSL lên máy chủ
+
+
+1. Tạo Server Private Key
+ 
+ $ openssl genrsa -out <filename>.key 2048
+ ex. $ openssl genrsa -out D:/minhchien.key 2048
+
+2. Tạo CSR Key
+
+ $ openssl req -new -key <filename>.key -out <filename>.csr
+ ex. $ openssl req -new -key D:/minhchien.key -out D:/minhchien.csr

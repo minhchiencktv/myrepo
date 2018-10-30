@@ -1,0 +1,188 @@
+********************************************
+			install angular
+----------------------------------------------------------------------------------------
+			$ npm install -g @angular/cli
+			$ ng new my-app
+			$ cd my-app
+			$ ng serve --open
+----------------------------------------------------------------------------------------
+			create router in angular
+			
+			+ src/app/app.module.ts (import)
+			//js//
+			  import { RouterModule, Routes } from '@angular/router';
+			////
+			+ src/app/app.module.ts (excerpt)
+			//js//
+			  const appRoutes: Routes = [
+				  { path: 'crisis-center', component: CrisisListComponent },
+				  { path: 'hero/:id',      component: HeroDetailComponent },
+				  { path: '**', component: PageNotFoundComponent }
+				];
+
+				@NgModule({
+				  imports: [
+					RouterModule.forRoot(
+					  appRoutes,
+					  { enableTracing: true } // <-- debugging purposes only
+					)
+					// other imports here
+				  ],
+				  ...
+				})
+				export class AppModule { }
+			////
+			+ src/app/app.component.html (template)
+			//html//
+				<h1>Angular Router</h1>
+				  <nav>
+					<a routerLink="/crisis-center" routerLinkActive="active">Crisis Center</a>
+					<a routerLink="/heroes" routerLinkActive="active">Heroes</a>
+				  </nav>
+				  <router-outlet></router-outlet>
+----------------------------------------------------------------------------------------
+			form group in angular 6
+			
+			
+			+ src/app/app.module.ts
+				import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+			
+			+ at child component
+				import { FormGroup, FormControl } from '@angular/forms';
+				create new object FormGroup
+				create new object FormControl in FormGroup
+----------------------------------------------------------------------------------------
+
+			create auth in angular
+			
+			+ create auth.guard.ts
+				import { Injectable } from '@angular/core';
+				import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from '@angular/router';
+				import { Observable } from 'rxjs';
+				import { AuthService } from '../_common/auth.service';
+
+				@Injectable({
+				  providedIn: 'root'
+				})
+				export class AuthGuard implements CanActivate {
+
+				  constructor(private router: Router, private authService: AuthService) {
+
+				  }
+				  canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
+					if (!this.authService.idAuthenticated()) {
+					  this.router.navigate(['/login'])
+					  return false
+					}
+					return true;
+				  }
+				}
+			+ create auth.service.ts
+				import { Injectable } from '@angular/core';
+				import { HttpClient, HttpHeaders } from '@angular/common/http';
+				import { Router } from '@angular/router';
+
+				@Injectable({
+				  providedIn: 'root'
+				})
+				export class AuthService {
+
+					login(){
+						//...//
+						localStorage.setItem('user', <your token>)
+						//...//
+					}
+								
+					logout(){
+						//...//
+						localStorage.remveItem('user')
+						//...//
+					}
+								
+					isAuthenticated(){
+						// check expired
+					}
+				}
+			+ app.module.ts
+		
+				// import ...
+
+				const routes: Routes = [
+				  { path: '', component: HomeComponent, canActivate: [AuthGuard]},
+				  { path: 'contact', component: ContactComponent, canActivate:[AuthGuard]},
+				  { path: 'about', component: AboutComponent, canActivate:[AuthGuard]},
+				  { path: 'login', component: LoginComponent},
+				  { path: 'register', component: RegisterComponent}
+				]
+
+				@NgModule({
+				  declarations: [
+					AppComponent,
+					HomeComponent,
+					ContactComponent,
+					AboutComponent,
+					LoginComponent,
+					RegisterComponent,
+					HeaderComponent
+				  ],
+				  imports: [
+					RouterModule.forRoot(routes, {
+					  enableTracing: true
+					}),
+					BrowserModule,
+					FormsModule,
+					ReactiveFormsModule,
+					HttpClientModule
+				  ],
+				  providers: [
+					AuthGuard
+				  ],
+				  bootstrap: [AppComponent]
+				})
+				export class AppModule { }
+			
+			+ app.component.html
+				<router-outlet></router-outlet>
+----------------------------------------------------------------------------
+			
+			incluce bootstrap in angular 5
+			
+			1) Install bootstrap using npm
+				npm install bootstrap --save
+
+			2) Install JQUERY
+				npm install jquery --save
+				
+			3) Install Popper.js
+				npm install popper.js --save
+				
+			+ angular-cli.json				
+			"styles": [   
+				"../node_modules/bootstrap/dist/css/bootstrap.min.css",
+				"styles.css"
+			 ],
+			 "scripts": [  
+				"../node_modules/jquery/dist/jquery.min.js",
+				"../node_modules/popper.js/dist/umd/popper.min.js",
+				"../node_modules/bootstrap/dist/js/bootstrap.min.js"
+			 ],
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			

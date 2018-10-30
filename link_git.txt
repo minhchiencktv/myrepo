@@ -1,0 +1,13 @@
+git@github.com:VibrentHealth/mission-control-api.git
+
+git@github.com:VibrentHealth/mission-control-core-ui.git
+
+git@github.com:VibrentHealth/mission-control-allofus-ui.git
+
+git@github.com:VibrentHealth/mission-control-scheduler-ui.git
+
+git@github.com:VibrentHealth/mission-control-capacitymgmt-ui.git
+
+git@github.com:VibrentHealth/mission-control-support-tool-ui.git
+
+git@github.com:VibrentHealth/mission-control-reporting-ui.git

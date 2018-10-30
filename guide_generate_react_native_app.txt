@@ -1,0 +1,31 @@
+*********************************************************************************
+-> Run on expo
+			Install react native
+			$ npm install -g create-react-native-app
+			$ create-react-native-app AwesomeProject
+			$ cd AwesomeProject
+			$ npm start
+*********************************************************************************
+-> Run on android
+		(*) Install tools 
+			1) install chocolatey
+				refer to https://chocolatey.org/install#requirements
+			2) install nodejs, python2, jdk(ver > 8)
+				$ choco install -y nodejs.install python2 jdk8
+			3) The React Native CLI
+				$ npm install -g react-native-cli
+		(*) Set environment ADB tool
+			+ Right click Computer -> Properties -> Advanced System Setting ->  System Variables in Environment Variables
+			-> Variables -> path -> Add new variable: C:\Users\<your-PC>\AppData\Local\Android\Sdk\platform-tools
+			+ Create device in AVD Management and start device
+		(*) Creating a new application				
+			(1)$ react-native init --version="react-native@0.55.4" MyNewApp	
+			(2)$ mkdir MyNewApp/app/src/main/assets
+			(3)$ react-native start --port=<your port> (ex.8088) (on one command line)
+				ex. react-native start --port=8088
+			(4)$ adb reverse tcp:<your port> tcp:<your port> (ex.8088)
+				ex. adb reverse tcp:8088 tcp:8088
+			(5)$ curl "http://localhost:8088/index.android.bundle?platform=android" -o "android/app/src/main/assets/index.android.bundle"
+			   (on another command line)
+			(6)$ react-native run-android
+			Note: (2) ran before (4) ran
