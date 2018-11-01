@@ -1,0 +1,12 @@
+
+***************************************
+	How to set log query mysql
+	
+	- Open file my.ini
+	- Enable log:
+	  
+	  [mysqld]
+		..//
+		general_log = 1
+		general_log_file = "mysql_query.log"
+	- Restart mysql

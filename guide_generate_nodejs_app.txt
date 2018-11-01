@@ -1,0 +1,8 @@
+***********************************************
+			Generate app nodejs
+			
+			$ npm install express-generator -g
+			$ express --view=pug myapp
+			$ cd myapp
+			$ npm install
+			$ DEBUG=myapp:* npm start
