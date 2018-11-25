@@ -1,0 +1,4 @@
+How to use GIT
+To push local repository to another repository:
+$ cd your_repo
+$ git push --set-upstream <link_another_repo>
