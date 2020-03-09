@@ -1,0 +1,12 @@
+
+Example kafka spring boot
+
+1. Configurations
+	- Consummer
+		Create bean
+	- Producer
+		Create bean
+2. Implement consumer service
+	-> Create listen method
+3. Implement producer service
+	-> Create send method

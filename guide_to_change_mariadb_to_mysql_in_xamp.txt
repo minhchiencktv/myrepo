@@ -5,11 +5,14 @@ $ cd c:\xampp (The folder installed xampp)
 $ mkdir mysql && cd
 $ mkdir data
 $ cd c:\xampp\mysql\bin
+$ mysql_install_db
 $ echo "[mysqld]
 # set basedir to your installation path
 basedir=c:/xampp/mysql
 # set datadir to the location of your data directory
 datadir=c:/xampp/mysql/data" >> my.ini
+# set UTC timezone
+default-time-zone= "+00:00" at [mysqld] in my.ini
 (Or get my.ini from cd c:\xampp\mysql\bin)
 $ mysqld --initialize
 $ mysqld
@@ -23,5 +26,7 @@ $ mysql -u root -p
  Enter root's password above
  Set password is empty
  mysql> ALTER USER 'root'@'localhost' IDENTIFIED BY '';
- mysql> SET @@global.time_zone='+00:00'; # set timezone UTC
  mysql> exit
+ 
+ 
+ mysql_install_db --user=mysql --basedir=/usr --datadir=/var/lib/mysql

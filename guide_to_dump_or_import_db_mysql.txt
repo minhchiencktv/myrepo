@@ -1,0 +1,17 @@
+			
+			
+			
+			How to dump database in MYSQL
+
+Windows
+	$ cd <installation_path>\bin
+	$ mysqldump.exe -d <db_name> -u root >> <dumped_file_name>
+Linux
+	$ cd <installation_path>/bin
+	$ mysqldump.exe -d <db_name> -u root >> <dumped_file_name>
+
+	
+			How to import dumped database in MYSQL
+			
+	$ mysql -u username -p password <db_name> < <dumped_file_name>.sql
+	

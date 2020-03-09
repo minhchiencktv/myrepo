@@ -1,0 +1,13 @@
+
+
+1. Join table -> return list objects[] -> parse list objects[] -> map to virtual object
+2. datetime in database to miliseconds in java
+	// joda time
+	String inputRaw = "2014/10/29 18:10:45";
+	String input = inputRaw.replace( "/", "-" ).replace( " ", "T" ); // "2014-10-29 18:10:45"
+	DateTimeZone zone = DateTimeZone.forID( "Europe/Oslo" ); // Or DateTimeZone.UTC
+	DateTime dateTime = new DateTime( input, zone );
+	long millisecondsSinceUnixEpoch = dateTime.getMillis();
+3. TableA join TableB(TableA @ManyToOne TableB)
+	get TableB find by id
+	create TableA via TableB 

@@ -1,0 +1,16 @@
+
+--- How to setup mariaDB for phpMyAdmin -----
+
+1) INSTALLATION
+$ cd bin
+$ mysql_install_db
+-> default user: root and no password
+
+2) START DB
+$ mysqld
+
+3) SET PASSWORD FOR ROOT(if any)
+$ cd bin
+$ mysql
+ mysql> ALTER USER 'root'@'localhost' IDENTIFIED BY '<your password>';
+ mysql> exit

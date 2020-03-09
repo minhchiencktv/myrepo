@@ -1,0 +1,33 @@
+
+******************************* How to use KAFKA *******************************
+
+1) Linux:
+
+2) Windows:
+
+	$ bin\windows\zookeeper-server-start.bat D:\kafka_2.12-2.3.0\config\zookeeper.properties
+
+	$ bin\windows\kafka-server-start.bat D:\kafka_2.12-2.3.0\config\server.properties
+
++ Create topic
+
+	$ bin\windows\kafka-topics.bat --create --bootstrap-server localhost:9092 --replication-factor 1 --partitions 1 --topic test
+
++ Delete topic
+
+	$ bin\windows\kafka-topics.bat --zookeeper localhost:9092 --delete --topic event.vxp.push.participant
+
+	$ bin\windows\kafka-topics.bat --zookeeper localhost:2181 --topic text_topic --delete
+
++ List topics
+
+	$ bin\windows\kafka-topics.bat --list --bootstrap-server localhost:9092
+
++ Producer
+
+	$ bin\windows\kafka-console-producer.bat --broker-list localhost:9092 --topic test
+
++ Consumer
+
+	$ bin\windows\kafka-console-consumer.bat --bootstrap-server localhost:9092 --topic test --from-beginning
+

@@ -1,0 +1,16 @@
+
+How to add timezone db for mysql or mariadb
+
+link: https://dev.mysql.com/downloads/timezones.html
+
+You can choose POSIX or LEAPS
+
+1) Import schemas of timezone db
+
+	https://downloads.mysql.com/general/timezone_2019c_posix.zip
+	https://downloads.mysql.com/general/timezone_2019c_leaps.zip
+	
+2) Import data of timezone db
+
+	https://downloads.mysql.com/general/timezone_2019c_posix_sql.zip
+	https://downloads.mysql.com/general/timezone_2019c_leaps_sql.zip
