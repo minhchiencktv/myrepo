@@ -1,0 +1,33 @@
+
+
+---------------------How to use kafka---------------------
+
+			$ cd <path>/bin (if windows os cd windows folder)
+1) Start ZooKeeper server
+
+ Linux:     $ zookeeper-server-start.sh config/zookeeper.properties
+ Windows:   $ zookeeper-server-start.bat ../../config/zookeeper.properties
+ 
+2) Start the Kafka server
+
+ Linux:     $ kafka-server-start.sh config/server.properties
+ Windows:   $ kafka-server-start.bat ../../config/server.properties
+ 
+	 broker.id=0
+	 listeners=PLAINTEXT://:9092
+	 log.dirs=/tmp/kafka-logs
+ 
+3) Create topics
+
+ Linux: 	$ kafka-topics.sh --create --bootstrap-server 127.0.0.1:9092 --replication-factor 1 --partitions 1 --topic test
+ Windows:   $ kafka-topics.bat --create --bootstrap-server 127.0.0.1:9092 --replication-factor 1 --partitions 1 --topic test
+ 
+4) Send message
+
+ Linux:     $ kafka-console-producer.sh --broker-list 127.0.0.1:9092 --topic test
+ Windows:   $ kafka-console-producer.bat --broker-list 127.0.0.1:9092 --topic test
+
+5) List topics
+
+ Linux:     $ kafka-topics.sh --list --bootstrap-server 127.0.0.1:9092
+ Windows:   $ kafka-topics.bat --list --bootstrap-server 127.0.0.1:9092
