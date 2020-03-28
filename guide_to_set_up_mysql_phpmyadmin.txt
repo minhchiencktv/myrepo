@@ -1,0 +1,38 @@
+How to set up MYSQL 8 and phpMyadmin
+
+
+1) cd <mysql_dir>\bin\
+  $ mysqld --initialize
+  
+  data folder has been created in <mysql_dir>
+  
+2) open data folder and open <PC_name>.err and see the default password for root
+
+3) Change the password for root
+   Start mysql
+   $ cd <mysql_dir>\bin>
+   $ mysqld
+   
+4) Open new cmd
+   Access mysql
+   $ cd <mysql_dir>\bin>
+   $ mysql -u root -p<defaul_pass>
+   mysq> ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '<your_pass>';
+   
+5) Config phpMyadmin
+   $ cd data
+   $ toutch my.ini
+   Add content
+   ***********************************
+   
+    [mysqld]
+	datadir=<mysql_dir>data
+	general_log_file = mysql_query.log
+	general_log      = 1
+	default-authentication-plugin=mysql_native_password
+	[client]
+	plugin-dir=<mysql_dir>/lib/plugin
+
+   ************************************
+
+6) Open phpMyadmin and login by root acc
