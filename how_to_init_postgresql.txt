@@ -1,0 +1,20 @@
+How to init Postgresql 
+
+1. Init database: $ initdb -D "D:\POSTGRESQL\pgsql\data"
+
+2. start: $ pg_ctl -D "D:\POSTGRESQL\pgsql-12\data" -l logfile start
+   stop:  $ pg_ctl -D "D:\POSTGRESQL\pgsql-12\data" -l logfile stop
+
+3. Create user: $ createuser chien.ta
+													 
+3. Create database: $ createdb.exe mydb													 
+
+4. Access database
+   $ psql -U chien.ta -d mydb
+
+5. Change password
+   $ psql -U chien.ta -d mydb
+   mydb=> \password
+   Enter new password:
+6. Log query
+   postgresql.conf > log_statement 

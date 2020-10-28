@@ -1,0 +1,14 @@
+*********************How to add program or tool for right click on windows*********************
+1) Login as administrator
+Start -> Run -> regedit.exe:
+ in HKEY_CLASSES_ROOT\Directory\background\shell
+2) Add new key (right click shell folder)
+   <your_name_folder>
+	|__command
+  In <your_name_folder> folder
+	- Right click 'name' column and choose 'Modify' to add value data (the name of program)
+        - Add icon ex: C:\Program Files\ConEmu\ConEmu64.exe
+   
+  In command folder right click 'name' column and choose 'Modify' to add value data (add path of the program)
+  ex: C:\Program Files\ConEmu\ConEmu64.exe
+  

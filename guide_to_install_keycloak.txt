@@ -1,0 +1,40 @@
+
+				How to install keycloak
+				
+			
+1) Booting the Server
+
+		$ cd bin
+	Linux/Unix
+		$ ./standalone.sh
+	Windows
+		>standalone.bat
+
+2) Creating the Admin Account
+
+	 Linux/Unix
+		$ ./add-user-keycloak.sh
+	 Windows
+	    >add-user-keycloak.bat
+		
+3) Create user-keycloak
+	
+	Linux/Unix
+	
+		$ add-user-keycloak.sh -r master -u chien.ta@dynagility.com -p 20192019@Tm@@@
+	
+	Windows
+	
+		>add-user-keycloak.bat -r master -u tminhchien@tma.com.vn -p 20192019@Tm@@@
+		
+
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
